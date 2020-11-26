@@ -11,17 +11,21 @@ $.ajaxPrefilter(function (ajaxOpt) {
     ajaxOpt.url = 'http://ajax.frontend.itheima.net' + ajaxOpt.url
     // b.统一为有权限的接口，设置Header请求头
     // 2、为所有/my/请求 添加token 
+
     if (ajaxOpt.url.indexOf('/my/') > -1) {
         ajaxOpt.headers = {
             Authorization: localStorage.getItem('token') || ''
         }
     }
     // 3、为所有的ajax 请求 统一配置complet 事件函数
+    // 获取响应报文之后，先执行success或error回调函数，最后执行complete回调函数
+    // success拿到的是响应报文体里面的内容，complete拿到的是响应报文对象 它们的res数据内容不一样
     ajaxOpt.complete = function (res) {
         // console.log('执行失败');
         // 在complete 回调函数中，可以使用res.responseJSON 
         // 1、判断 返回的数据是否在告诉我们没有登录【没有登录】
-        // console.log(res.responseJSON);
+        console.log(res);
+        console.log(res.responseJSON);
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
             // 没有登录 则：
             // d1:显示需要重新登录的消息 显示结束 再执行 清空token和跳转操作
@@ -32,9 +36,8 @@ $.ajaxPrefilter(function (ajaxOpt) {
                 // d2:清空 tokrn 
                 localStorage.removeItem('token')
                 // d3: 跳转到 login.html
-                location.href = '/login.html'
+                window.top.location.href = '/login.html'
             })
-
         }
     }
 })

@@ -28,13 +28,13 @@
                         个人中心
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">基本资料</a></dd>
-                        <dd><a href="">更换头像</a></dd>
-                        <dd><a href="">重置密码</a></dd>
+                        <dd><a href="/user/user_info.html" target="ifr">基本资料</a></dd>
+                        <dd><a href="/user/user_avatar.html" target="ifr">更换头像</a></dd>
+                        <dd><a href="/user/user_pwd.html" target="ifr">重置密码</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascrip:;" id="btnLogout"><span class="iconfont icon-tuichu"></span>
+                    <a href="javascript:;" id="btnLogout"><span class="iconfont icon-tuichu"></span>
                         退出</a>
                 </li>
             </ul>
@@ -63,9 +63,13 @@
                     <li class="layui-nav-item">
                         <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>基本资料</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
-                            <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>重置密码</a></dd>
+                            <!-- 在iframe中打开 -->
+                            <dd><a href="user/user_info.html" target="ifr"><i
+                                        class="layui-icon layui-icon-app"></i>基本资料</a></dd>
+                            <dd><a href="user/user_avatar.html" target="ifr"><i
+                                        class="layui-icon layui-icon-app"></i>更换头像</a></dd>
+                            <dd><a href="user/user_pwd.html" target="ifr"><i
+                                        class="layui-icon layui-icon-app"></i>重置密码</a></dd>
                         </dl>
                     </li>
                 </ul>
@@ -74,6 +78,7 @@
 
         <div class="layui-body">
             <!-- 内容主体区域 -->
+            <!-- iframe显示页面 内嵌框架（小浏览器）-->
             <iframe id="ifr" name="ifr" src="/home/dashboard.html" frameborder="0"></iframe>
         </div>
 

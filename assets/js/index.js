@@ -58,10 +58,12 @@ function logout() {
     let layer = layui.layer
     // a.弹出确认框
     layer.confirm('确定退出登录?', { icon: 3, title: '系统提示' }, function (index) {
+        console.log(index);
         // b.删除 localStorage中的token值
         localStorage.removeItem('token')
         // c.跳转到login.html 
         location.href = '/login.html'
+        // 关闭弹出层
         layer.close(index)
     })
 }
