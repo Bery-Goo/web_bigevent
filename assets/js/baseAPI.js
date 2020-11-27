@@ -24,8 +24,8 @@ $.ajaxPrefilter(function (ajaxOpt) {
         // console.log('执行失败');
         // 在complete 回调函数中，可以使用res.responseJSON 
         // 1、判断 返回的数据是否在告诉我们没有登录【没有登录】
-        console.log(res);
-        console.log(res.responseJSON);
+        // console.log(res);
+        // console.log(res.responseJSON);
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
             // 没有登录 则：
             // d1:显示需要重新登录的消息 显示结束 再执行 清空token和跳转操作
