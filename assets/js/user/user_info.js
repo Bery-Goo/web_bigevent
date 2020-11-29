@@ -26,7 +26,7 @@ function initUserInfo() {
                 return layui.layer.msg(res.message)
             }
             console.log(res);
-            // 将返回的data里面的数据加入到表单里面 （layui里面的方法，简单快速）
+            // 将返回的data里面的数据加入到表单里面 （layui里面的方法(内置模块==>表单==>赋值)，简单快速）
             layui.form.val('formUserInfo', res.data)
         }
     })

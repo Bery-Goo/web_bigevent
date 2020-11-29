@@ -98,7 +98,7 @@ function renderPage(total) {
             q.pagenum = obj.curr   //获取当前页码 设置给分页查询参数
             // 把最新的条目数赋值到q 这个查询参数对象中
             q.pagesize = obj.limit;   //获取 下拉框中选中的页容量设置给分页查询参数
-            // 根据最新的q获取对应的数据列表 并渲染表格    直接调用会发生死循环(jump一直在触发 ）加first判断是否是首次执行，点击了页码按钮会初始化
+            // 根据最新的q获取对应的数据列表 并渲染表格    直接调用会发生死循环(jump一直在触发 ）加first判断是否是首次执行，点击了 页码按钮会 初始化
             // initArtList()  
             if (!first) {
                 initArtList()
@@ -110,6 +110,7 @@ function renderPage(total) {
 function del() {
     // 获取 页面上剩余函数
     let rows = $('tbody tr .btn-delete').length;
+    // console.log(rows);
     let id = this.dataset.id
     layer.confirm('确定要删除吗？', { icon: 3, title: '提示' }, function (index) {
         // console.log('要删除的是：', id);
